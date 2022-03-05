@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Blogs Here</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <!-- <h1><%= articles %></h1> -->
+    <h1 style="margin: 10px; padding: 10px">Blog Articles</h1>
+    <div style="padding: 10px">
+        <a href="/articles/new" style="text-decoration: none; color: White; padding: 10px; background: #00963e; margin: 10px; border-radius: 8px">New Article</a>
+
+        <div style="margin-top: 10px">
+            <% articles.forEach(article => { %>
+                <div style="margin: 10px; border: 1px solid #444; width: fit-content; padding: 10px; border-radius: 6px; max-width: 400px; min-width: 200px;">
+                    <div>
+                        <h3><%= article.title %></h3>
+                    </div>
+                    <div>
+                        <%= article.createdAt.toLocaleDateString() %>
+                    </div>
+                    <div>
+                        <%= article.description %>
+                    </div>
+                </div>
+    
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>
