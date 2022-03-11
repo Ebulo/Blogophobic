@@ -3,12 +3,17 @@ const mongoose = require('mongoose');
 const articleRouter = require('./routes/articles');
 const app = express(); // create an instance of express
 
-var mongoDB = 'mongodb://127.0.0.1/blog';
+// var mongoDB = 'mongodb://127.0.0.1/blog';
+var mongoDB = 'mongodb+srv://bishant:mongo_bishant1234@hrc-cluster.ikeg2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
-mongoose.connect(mongoDB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+async function start() {
+    await mongoose.connect(mongoDB, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    });
+}
+
+start();
 
 var db = mongoose.connection;
 
